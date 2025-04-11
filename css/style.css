@@ -1,0 +1,484 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #326b5da4;
+    font-family: arial;
+}
+
+header {
+    background-color: #326B5D;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: start;
+  }
+  
+.logo img {
+    width: 50px;
+}
+
+.logo h2 {
+    padding: 10px;
+}
+
+  .desp {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .desp div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+
+  nav {
+    display: flex;
+    gap: 5rem;
+  }
+
+  nav a {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav a:hover {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #389c83;
+  }
+
+  .contenedor-principal {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 60px 30px;
+    background-color: #f8f9fabe;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .first {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; 
+  }
+  
+  .container-img img {
+    width: 450px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container-text {
+    flex: 1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #333;
+  }
+  
+  .container-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #222;
+  }
+
+  .slider-manual {
+    position: relative;
+    max-width: 1000px;
+    height: 500px;
+    margin: 60px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .slide-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slide.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 2px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+    transition: background 0.3s;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.7);
+  }
+  
+  .prev {
+    left: 15px;
+  }
+  
+  .next {
+    right: 15px;
+  }
+  
+.subscription-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 100px;
+    flex-wrap: wrap; 
+  }
+  
+  .plan {
+    background-color: #326b5d4f;
+    border-radius: 15px;
+    padding: 40px;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+  
+  .plan.active {
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(255, 255, 255);
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 99, 71, 0.2);
+  }
+
+  .plan.active li {
+    color: rgb(0, 75, 94);
+    font-weight: 800;
+  }
+  
+  .plan h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #000000;
+  }
+  
+  .price {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #335966;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+  }
+  
+  ul li {
+    font-size: 1.4rem;
+    margin: 15px 0;
+    color: #dfdfdf;
+    line-height: 1.5;
+  }
+  
+  button.subscribe {
+    background-color: #00BFFF;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 18px;
+    width: 100%;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button.subscribe:hover {
+    background-color: #008C8C;
+    color: rgb(185, 255, 249);
+    transform: translateY(-5px); 
+  }
+
+  .responsabilidad {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 30px 30px;
+    background-color: #f8f9fabe;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+.container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px;
+    flex-wrap: wrap; 
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+  
+  .form-container {
+    flex: 1; 
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  .form-container h2 {
+    padding: 20px;
+}
+
+  .map-container {
+    flex: 1; 
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+  }
+
+  .map-container h2 {
+    padding: 20px;
+  }
+
+  .map-container iframe {
+    width: 900px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  form label {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  form input, form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #000000;
+    border-radius: 8px;
+  }
+
+  form textarea {
+    height: 150px;
+  }
+  
+  form button {
+    margin-top: 40px;
+    padding: 12px;
+    background-color: #00BFFF;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button:hover {
+    background-color: #008C8C;
+  }
+
+  
+  
+  /*Media querys*/
+
+  @media (max-width: 768px) {
+    .desp {
+      display: flex;
+    }
+
+    nav {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      flex-direction: column;
+      align-items: center;
+      display: none;
+    }
+
+    nav.activo {
+      display: flex;
+    }
+  }
+
+  footer {
+    background-color: #30685a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px; 
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+  @media screen and (max-width: 768px) {
+    .first {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .container-img img {
+      width: 90%;
+    }
+  
+    .container-text {
+      font-size: 18px;
+      padding: 0 10px;
+    }
+  
+    .container-text h2 {
+      font-size: 28px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .container-text {
+      font-size: 16px;
+    }
+  
+    .container-text h2 {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .subscription-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .plan {
+      width: 90%;
+      margin: 10px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .plan {
+      padding: 25px;
+      width: 90%;
+    }
+  
+    .price {
+      font-size: 2.5rem;
+    }
+  
+    button.subscribe {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; 
+      gap: 30px;
+    }
+  
+    .form-container, .map-container {
+      width: 100%; 
+    }
+  
+    .map-container iframe {
+      width: 100%; 
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+      flex-direction: column;
+      background-color: #326B5D;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      gap: 0;
+      text-align: center;
+      z-index: 1000;
+    }
+  
+    nav a {
+      padding: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  
+    .desp {
+      display: flex;
+    }
+  
+    nav.active {
+      display: flex;
+    }
+  }
+  
